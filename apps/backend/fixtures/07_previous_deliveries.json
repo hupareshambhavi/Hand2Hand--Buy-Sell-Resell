@@ -1,0 +1,92 @@
+[
+  {
+    "model": "delivery_agent.deliveryrequest",
+    "pk": 1,
+    "fields": {
+      "agent": null,
+      "product_id": 1,
+      "request_date": "2024-06-01T10:00:00Z",
+      "seller_id": 1,
+      "dropoff_location": "123 Main St, City A",
+      "pickup_location": "456 Market Rd, City B",
+      "status": "pending",
+      "buyer_id": 2,
+      "delivery_date": "2024-06-01T12:00:00Z",
+      "delivery_fee": 5.00,
+      "delivery_mode": "standard",
+      "delivery_notes": "Handle with care, fragile item."
+    }
+  },
+    {
+    "model": "delivery_agent.deliveryrequest",
+    "pk": 5,
+    "fields": {
+      "agent": null,
+      "product_id": 5,
+      "request_date": "2024-06-01T10:00:00Z",
+      "seller_id": 1,
+      "dropoff_location": "123 Main St, City A",
+      "pickup_location": "456 Market Rd, City B",
+      "status": "pending",
+      "buyer_id": 2,
+      "delivery_date": "2024-06-01T12:00:00Z",
+      "delivery_fee": 5.00,
+      "delivery_mode": "standard",
+      "delivery_notes": "Leave at front door if no one is home."
+    }
+  },
+  {
+    "model": "delivery_agent.deliveryrequest",
+    "pk": 2,
+    "fields": {
+      "agent": 2,
+      "product_id": 2,
+      "request_date": "2024-06-02T11:30:00Z",
+      "seller_id": 3,
+      "dropoff_location": "789 Elm St, City C",
+      "pickup_location": "321 Oak Ave, City D",
+      "status": "accepted",
+      "buyer_id": 2,
+      "delivery_date": "2024-06-02T13:30:00Z",
+      "delivery_fee": 7.50,
+      "delivery_mode": "express",
+      "delivery_notes": "Deliver before 3 PM."
+    }
+  },
+  {
+    "model": "delivery_agent.deliveryrequest",
+    "pk": 3,
+    "fields": {
+      "agent": 1,
+      "product_id": 3,
+      "request_date": "2024-06-03T09:15:00Z",
+      "seller_id": 3,
+      "dropoff_location": "654 Pine St, City E",
+      "pickup_location": "987 Cedar Rd, City F",
+      "status": "completed",
+      "buyer_id": 2,
+      "delivery_date": "2024-06-03T11:00:00Z",
+      "delivery_fee": 6.00,
+      "delivery_mode": "standard",
+      "delivery_notes": "Leave at front door if no one is home."
+    }
+  },
+  {
+    "model": "delivery_agent.deliveryrequest",
+    "pk": 4,
+    "fields": {
+      "agent": 1,
+      "product_id": 4,
+      "request_date": "2024-06-04T14:45:00Z",
+      "seller_id": 1,
+      "dropoff_location": "111 Maple St, City G",
+      "pickup_location": "222 Birch Ave, City H",
+      "status": "completed",
+      "buyer_id": 1,
+      "delivery_date": "2024-06-04T16:30:00Z",
+      "delivery_fee": 8.00,
+      "delivery_mode": "express",
+      "delivery_notes": "Call upon arrival."
+    }
+  }
+]

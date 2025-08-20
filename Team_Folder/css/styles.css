@@ -1,0 +1,147 @@
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Home Page - Title and Paragraph */
+h1 {
+  font-size: 2.8rem;
+  color: #1a252f;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2em;
+  padding: 0 20px;
+}
+
+/* Button Styling */
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 30px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Team List Container */
+#teamList {
+  max-width: 400px;
+  margin: 2em auto;
+  background-color: #ffffff;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* List Inside Team */
+#teamList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#teamList li {
+  margin: 0.5em 0;
+}
+
+#teamList a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+#teamList a:hover {
+  color: #1abc9c;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Member Profile Page */
+.profile-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+}
+
+.profile-container img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.profile-container p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  padding: 0 20px;
+}
+
+.profile-container a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.profile-container a:hover {
+  color: #1abc9c;
+}
+
+/* Responsive Small Screens */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .profile-container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  .profile-container img {
+    width: 120px;
+    height: 120px;
+  }
+}

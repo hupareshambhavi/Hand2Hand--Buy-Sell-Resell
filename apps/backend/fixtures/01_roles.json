@@ -1,0 +1,16 @@
+[
+  {
+    "model": "users.role",
+    "pk": 1,
+    "fields": {
+      "role_name": "user"
+    }
+  },
+  {
+    "model": "users.role",
+    "pk": 2,
+    "fields": {
+      "role_name": "moderator"
+    }
+  }
+]

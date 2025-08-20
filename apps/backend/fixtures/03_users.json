@@ -1,0 +1,116 @@
+[
+  {
+    "model": "users.userprofile",
+    "pk": 1,
+    "fields": {
+      "last_name": "Doe",
+      "first_name": "John",
+      "email": "john.doe@informatik.hs-fulda.de",
+      "user_type": "user",
+      "is_verified": true,
+      "badge": "Top Seller",
+      "sell_count": 10,
+      "buy_count": 5,
+      "joined_date": "2023-05-01",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile.jpg",
+      "address": 1,
+      "role": 1,
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 2,
+    "fields": {
+      "last_name": "Smith",
+      "first_name": "Alex",
+      "email": "alex.smith@informatik.hs-fulda.de",
+      "user_type": "user",
+      "is_verified": true,
+      "badge": "Top Seller",
+      "sell_count": 10,
+      "buy_count": 5,
+      "joined_date": "2023-05-01",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile1.jpg",
+      "address": 1,
+      "role": 1,
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 3,
+    "fields": {
+      "last_name": "Smith",
+      "first_name": "Alice",
+      "email": "alice.smith@informatik.hs-fulda.de",
+      "user_type": "user",
+      "is_verified": false,
+      "badge": "New Seller",
+      "sell_count": 3,
+      "buy_count": 2,
+      "joined_date": "2023-06-15",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile2.jpg",
+      "address": 2,
+      "role": 1,
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 4,
+    "fields": {
+      "last_name": "Brown",
+      "first_name": "Charlie",
+      "email": "charlie.brown@informatik.hs-fulda.de",
+      "user_type": "user",
+      "is_verified": true,
+      "badge": "Trusted Seller",
+      "sell_count": 6,
+      "buy_count": 4,
+      "joined_date": "2023-07-20",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile3.jpg",
+      "address": 3,
+      "role": 1,
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+    {
+    "model": "users.userprofile",
+    "pk": 5,
+    "fields": {
+      "last_name": "Bob",
+      "first_name": "Johnson",
+      "email": "bob.johnson@informatik.hs-fulda.de",
+      "user_type": "moderator",
+      "is_verified": true,
+      "badge": "",
+      "sell_count": 3,
+      "buy_count": 2,
+      "joined_date": "2023-06-15",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile2.jpg",
+      "address": 2,
+      "role": 2,
+      "password": "pbkdf2_sha256$1000000$vhYtyfOc7OwaIhPNhJSOy9$RBWnx7/HqQQBfd5nnoud2spQ6JZRycpApDXumI2nJPc="
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 6,
+    "fields": {
+      "last_name": "Brown",
+      "first_name": "Charlie",
+      "email": "charlie@informatik.hs-fulda.de",
+      "user_type": "moderator",
+      "is_verified": true,
+      "badge": "",
+      "sell_count": 6,
+      "buy_count": 4,
+      "joined_date": "2023-07-20",
+      "profile_pic_url": "http://informatik.hs-fulda.de/profile3.jpg",
+      "address": 3,
+      "role": 2,
+      "password": "pbkdf2_sha256$1000000$vhYtyfOc7OwaIhPNhJSOy9$RBWnx7/HqQQBfd5nnoud2spQ6JZRycpApDXumI2nJPc="
+    }
+  }
+]

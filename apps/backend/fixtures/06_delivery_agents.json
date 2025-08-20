@@ -1,0 +1,62 @@
+[
+  {
+    "model": "delivery_agent.deliveryagent",
+    "pk": 1,
+    "fields": {
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "category_ids": "1,2",
+      "email": "alice.smith@informatik.hs-fulda.de",
+      "phone_number": "1234567890",
+      "transport_mode": "Bike",
+      "reviews": [],
+      "deliveries_completed": 15,
+      "identity_img_url": "https://example.com/id/alice.jpg",
+      "day_of_week": "Monday",
+      "time_slot": 1,
+      "joined_date": "2024-01-15",
+      "approval_status": "approved",
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+  {
+    "model": "delivery_agent.deliveryagent",
+    "pk": 2,
+    "fields": {
+      "first_name": "Bob",
+      "last_name": "Johnson",
+      "category_ids": "2,3",
+      "email": "bob.johnson@informatik.hs-fulda.de",
+      "phone_number": "2345678901",
+      "transport_mode": "Car",
+      "reviews": [],
+      "deliveries_completed": 30,
+      "identity_img_url": "https://example.com/id/bob.jpg",
+      "day_of_week": "Wednesday",
+      "time_slot": 2,
+      "joined_date": "2024-02-10",
+      "approval_status": "approved",
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  },
+  {
+    "model": "delivery_agent.deliveryagent",
+    "pk": 3,
+    "fields": {
+      "first_name": "Charlie",
+      "last_name": "Lee",
+      "category_ids": "1,3",
+      "email": "charlie.lee@informatik.hs-fulda.de",
+      "phone_number": "3456789012",
+      "transport_mode": "Scooter",
+      "reviews": [],
+      "deliveries_completed": 22,
+      "identity_img_url": "https://example.com/id/charlie.jpg",
+      "day_of_week": "Friday",
+      "time_slot": 3,
+      "joined_date": "2024-03-05",
+      "approval_status": "pending",
+      "password": "pbkdf2_sha256$1000000$5lkq4Oito3BunJsu2bPk9j$q5aWG8RsP4mhIPTQ09KLZk3C0P+ygzk0TqiL3u24A2U="
+    }
+  }
+]

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Global Distributed Software Development</h1>
+  <button onclick="showTeam()">Team 1</button>
+
+  <div id="teamList" style="display:none;">
+    <ul>
+      <li><a href="team/member1.html">Rachna Tiwari - TEAM LEAD</a></li>
+      <li><a href="team/member2.html">Aishwarya Ravi - GITMASTER</a></li>
+      <li><a href="team/member3.html">Ridma Kaveendra - BACKEND LEAD</a></li>
+      <li><a href="team/member4.html">Shambhavi Hupare - FRONTEND LEAD</a></li>
+      <li><a href="team/member5.html">BINDU LAKSHMANAPPA - FRONTEND</a></li>
+    </ul>
+  </div>
+
+  <footer style="text-align:center; margin-top: 50px; font-size: 0.9em; color: gray;">
+    <p>This project is only for educational purposes and is developed by MSc students at Hochschule Fulda.</p>
+  </footer>
+
+  <script>
+    function showTeam() {
+      document.getElementById("teamList").style.display = "block";
+    }
+  </script>
+</body>
+</html>

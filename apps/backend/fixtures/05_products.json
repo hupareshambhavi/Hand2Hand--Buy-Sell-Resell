@@ -1,0 +1,290 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Wireless Mouse",
+      "description": "A comfortable wireless mouse",
+      "price": 29.99,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185412.png", "https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185426.png"],
+      "seller": 1,
+      "category": 1,
+      "created_at": "2024-05-01T10:00:00Z",
+      "updated_at": "2024-05-01T10:00:00Z",
+      "status": "Sold",
+      "is_wanted": false,
+      "location": "36037",
+      "approve_status": "approved"
+      
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Winter Jacket",
+      "description": "Noise-cancelling headphones",
+      "price": 89.99,
+      "condition": "Used",
+      "image_urls": ["https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185548.png", "https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185600.png"],
+      "seller": 3,
+      "category": 3,
+      "created_at": "2024-05-02T11:00:00Z",
+      "updated_at": "2024-05-02T11:00:00Z",
+      "status": "Sold",
+      "is_wanted": false,
+      "location": "36037",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "E-Book Reader",
+      "description": "Perfect for reading on the go",
+      "price": 120.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185734.png"],
+      "seller": 3,
+      "category": 1,
+      "created_at": "2024-05-03T12:00:00Z",
+      "updated_at": "2024-05-03T12:00:00Z",
+      "status": "Sold",
+      "is_wanted": false,
+      "location": "36041",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Science Textbook",
+      "description": "High school level science book",
+      "price": 15.00,
+      "condition": "Used",
+      "image_urls": ["https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185709.png"],
+      "seller": 1,
+      "category": 2,
+      "created_at": "2024-05-04T13:00:00Z",
+      "updated_at": "2024-05-04T13:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36041",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Graphic Tablet",
+      "description": "Great for artists and designers",
+      "price": 79.99,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185628.png", "https://hand2handimages.s3.us-east-1.amazonaws.com/uploads/Screenshot+2025-06-02+185637.png"],
+      "seller": 1,
+      "category": 1,
+      "created_at": "2024-05-05T14:00:00Z",
+      "updated_at": "2024-05-05T14:00:00Z",
+      "status": "Available",
+      "is_wanted": true,
+      "location": "36043",
+      "approve_status": "pending"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Bluetooth Speaker",
+      "description": "Portable speaker with high-quality sound",
+      "price": 45.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750944875664_h3vheehe42c.png"],
+      "seller": 2,
+      "category": 1,
+      "created_at": "2024-05-06T15:00:00Z",
+      "updated_at": "2024-05-06T15:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36045",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Yoga Mat",
+      "description": "Non-slip yoga mat for exercise",
+      "price": 20.00,
+      "condition": "New",
+      "image_urls": [
+        "https://hand2handimages.s3.amazonaws.com/uploads/1750944958562_h7mxc86adks.png","https://hand2handimages.s3.amazonaws.com/uploads/1750945003999_qcgx5e46lug.png"],
+      "seller": 3,
+      "category": 5,
+      "created_at": "2024-05-07T16:00:00Z",
+      "updated_at": "2024-05-07T16:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36047",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "name": "Coffee Maker",
+      "description": "Automatic drip coffee maker",
+      "price": 35.00,
+      "condition": "Used",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945070163_std5k281jd.png"],
+      "seller": 1,
+      "category": 1,
+      "created_at": "2024-05-08T17:00:00Z",
+      "updated_at": "2024-05-08T17:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36049",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "name": "Mountain Bike",
+      "description": "Sturdy bike for off-road trails",
+      "price": 250.00,
+      "condition": "Used",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945121143_2wdiugur91k.png"],
+      "seller": 2,
+      "category": 5,
+      "created_at": "2024-05-09T18:00:00Z",
+      "updated_at": "2024-05-09T18:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36051",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "name": "Desk Lamp",
+      "description": "LED desk lamp with adjustable brightness",
+      "price": 18.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945174932_4ginl8qjpiu.png","https://hand2handimages.s3.amazonaws.com/uploads/1750945234710_m0taea16hfk.png"],
+      "seller": 3,
+      "category": 1,
+      "created_at": "2024-05-10T19:00:00Z",
+      "updated_at": "2024-05-10T19:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36053",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "name": "Running Shoes",
+      "description": "Comfortable shoes for jogging",
+      "price": 60.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945311048_ymwbx1s9ih.png"],
+      "seller": 1,
+      "category": 5,
+      "created_at": "2024-05-11T20:00:00Z",
+      "updated_at": "2024-05-11T20:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36055",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "name": "Electric Kettle",
+      "description": "Fast boiling electric kettle",
+      "price": 25.00,
+      "condition": "Used",
+      "image_urls": [
+        "https://hand2handimages.s3.amazonaws.com/uploads/1750945362965_2gqelmdkhnq.png"],
+      "seller": 2,
+      "category": 1,
+      "created_at": "2024-05-12T21:00:00Z",
+      "updated_at": "2024-05-12T21:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36057",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "name": "Backpack",
+      "description": "Spacious backpack for travel or school",
+      "price": 30.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945406314_hvwuqtcf9d8.png"],
+      "seller": 3,
+      "category": 8,
+      "created_at": "2024-05-13T22:00:00Z",
+      "updated_at": "2024-05-13T22:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36059",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+      "name": "Cookware Set",
+      "description": "Non-stick pots and pans set",
+      "price": 55.00,
+      "condition": "New",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945456030_zmkfvq8n7tt.png","https://hand2handimages.s3.amazonaws.com/uploads/1750945517631_85gob5upn4d.png","https://hand2handimages.s3.amazonaws.com/uploads/1750945540416_2wvt9v6eclj.png","https://hand2handimages.s3.amazonaws.com/uploads/1750945595513_ap9ifeb1drr.png"],
+      "seller": 1,
+      "category": 9,
+      "created_at": "2024-05-14T23:00:00Z",
+      "updated_at": "2024-05-14T23:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36061",
+      "approve_status": "approved"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+      "name": "Board Game",
+      "description": "Fun strategy board game for families",
+      "price": 22.00,
+      "condition": "Used",
+      "image_urls": ["https://hand2handimages.s3.amazonaws.com/uploads/1750945637164_mvnpcz12fdq.png"],
+      "seller": 2,
+      "category": 7,
+      "created_at": "2024-05-15T09:00:00Z",
+      "updated_at": "2024-05-15T09:00:00Z",
+      "status": "Available",
+      "is_wanted": false,
+      "location": "36063",
+      "approve_status": "approved"
+    }
+  }
+]

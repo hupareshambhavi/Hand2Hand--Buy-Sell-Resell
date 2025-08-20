@@ -1,0 +1,35 @@
+FROM python:3-slim
+
+EXPOSE 8000
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Install system dependencies needed for mysqlclient
+RUN apt-get update && apt-get install -y \
+    gcc \
+    default-libmysqlclient-dev \
+    pkg-config \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y default-mysql-client
+
+# Copy requirements and start.sh from backend directory inside your project
+COPY backend/requirements.txt .
+
+# Install Python dependencies
+RUN python -m pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy rest of the app code
+COPY backend ./backend
+
+# Make start.sh executable
+RUN chmod +x /app/backend/start.sh
+
+RUN apt-get update && apt-get install -y dos2unix \
+  && dos2unix /app/backend/start.sh
+
+# Use start script as container command
+CMD ["/app/backend/start.sh"]

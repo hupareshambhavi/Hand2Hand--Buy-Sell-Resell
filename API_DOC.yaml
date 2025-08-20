@@ -1,0 +1,751 @@
+openapi: 3.0.0
+info:
+  title: Hand2Hand API
+  version: 1.0.0
+tags:
+  - name: Authentication
+  - name: User
+  - name: Products
+  - name: Delivery
+  - name: Messaging
+  - name: Gamification
+  - name: Reviews & Reports
+  - name: Notifications
+paths:
+  /api/auth/register/:
+    post:
+      tags: [Authentication]
+      summary: Register a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+      responses:
+        '201':
+          description: User registered successfully
+
+  /api/auth/login/:
+    post:
+      tags: [Authentication]
+      summary: Login user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+
+  /api/user/{id}:
+    get:
+      tags: [User]
+      summary: Get user profile
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: User ID
+      responses:
+        '200':
+          description: User profile retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+  
+    put:
+      tags: [User]
+      summary: Update user profile
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: User ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfile'
+      responses:
+        '200':
+          description: User profile updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+  
+    delete:
+      tags: [User]
+      summary: Delete user profile
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: User ID
+      responses:
+        '200':
+          description: User profile deleted
+                
+  /api/user/{id}/badges/:
+    get:
+      tags: [User]
+      summary: Fetch earned badges
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: User ID
+      responses:
+        '200':
+          description: List of earned badges
+
+  /api/user/{id}/reviews/:
+    get:
+      tags: [User]
+      summary: Get user's reviews
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: User ID
+      responses:
+        '200':
+          description: List of user's reviews
+
+
+  /api/products/:
+    get:
+      tags: [Products]
+      summary: List all products
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: condition
+          in: query
+          schema:
+            type: string
+        - name: location
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+                  
+    post:
+      tags: [Products]
+      summary: Create a new product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Product created
+
+  /api/products/{id}/:
+    get:
+      tags: [Products]
+      summary: Get product detail
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Product ID
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  
+    put:
+      tags: [Products]
+      summary: Edit product
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Product ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  
+    delete:
+      tags: [Products]
+      summary: Delete product
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Product ID
+      responses:
+        '200':
+          description: Product deleted
+  
+  /api/products/wanted/:
+    get:
+      tags: [Products]
+      summary: View all wanted product posts
+      responses:
+        '200':
+          description: List of wanted products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+
+  /api/delivery/:
+    post:
+      tags: [Delivery]
+      summary: Create a delivery request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryRequest'
+      responses:
+        '201':
+          description: Delivery request created
+          
+    get:
+      tags: [Delivery]
+      summary: View delivery requests
+      responses:
+        '200':
+          description: List of delivery requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeliveryRequest'
+
+  /api/delivery/accept/:
+    post:
+      tags: [Delivery]
+      summary: Delivery agent accepts a delivery request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request_id:
+                  type: integer
+                delivery_agent_id:
+                  type: integer
+              required:
+                - request_id
+                - agent_id
+      responses:
+        '200':
+          description: Delivery request accepted successfully
+
+  /api/delivery/agents/:
+    get:
+      tags: [Delivery]
+      summary: View available delivery agents
+      responses:
+        '200':
+          description: List of available delivery agents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    agent_id: { type: integer }
+                    name: { type: string }
+                    rating: { type: integer }
+
+  /message-threads/{thread_id}/:
+    get:
+      summary: Get all message threads of the current user
+      tags: [Messaging]
+      parameters:
+        - in: path
+          name: thread_id
+          schema:
+            type: string
+          required: true
+          description: Thread ID
+      responses:
+        '200':
+          description: List of message threads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+
+    post:
+      summary: Create a new message thread / Retrieve an existing message thread
+      tags: [Messaging]
+      parameters:
+        - in: path
+          name: thread_id
+          schema:
+            type: string
+          required: true
+          description: Thread ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [user_id, peer_id]
+              properties:
+                user_id:
+                  type: integer
+                peer_id:
+                  type: integer
+      responses:
+        '201':
+          description: Thread created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  thread_id:
+                    type: integer
+
+    put:
+      summary: Send a message in a thread
+      tags: [Messaging]
+      parameters:
+        - in: path
+          name: thread_id
+          schema:
+            type: string
+          required: true
+          description: Thread ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content]
+              properties:
+                content:
+                  type: string
+                sent_at:
+                  type: string
+      responses:
+        '200':
+          description: Message sent successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+
+  /api/messages/translate/:
+    post:
+      tags: [Messaging]
+      summary: Translate a message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                target_language:
+                  type: string
+      responses:
+        '200':
+          description: Translated message
+
+  /api/engagement/:
+    get:
+      tags: [Gamification]
+      summary: Get user engagement profile
+      responses:
+        '200':
+          description: User engagement data
+
+  /api/reviews/:
+    post:
+      tags: [Reviews & Reports]
+      summary: Submit a review
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '201':
+          description: Review created
+
+  /api/reports/:
+    get:
+      tags: [Reviews & Reports]
+      summary: Get all reports - Admin API
+      responses:
+        '200':
+          description: Report submitted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Report'
+                  
+    post:
+      tags: [Reviews & Reports]
+      summary: Report a product or user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Report'
+      responses:
+        '201':
+          description: Report submitted
+  
+  /api/reports/{report_id}/:        
+    delete:
+      tags: [Reviews & Reports]
+      summary: Delete a false report
+      parameters:
+        - in: path
+          name: report_id
+          schema:
+            type: integer
+          required: true
+          description: Report ID
+      responses:
+        '200':
+          description: Report deleted
+
+    get:
+      tags: [Reviews & Reports]
+      summary: Get a specific report - Admin API
+      parameters:
+        - in: path
+          name: report_id
+          schema:
+            type: string
+          required: true
+          description: Report ID
+      responses:
+        '200':
+          description: Report Retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+                  
+  /api/notifications/:
+    get:
+      tags: [Notifications]
+      summary: List user notifications
+      responses:
+        '200':
+          description: Notifications list
+
+  /upload/images:
+    post:
+      summary: Upload multiple images
+      tags: [Upload]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '200':
+          description: Images uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  image_ids:
+                    type: array
+                    items:
+                      type: string
+                      example: "id47289472947abc123"
+                      
+  /download/{file_id}:
+    get:
+      summary: Download file by ID
+      tags: [Download]
+      parameters:
+        - name: file_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "img_abc123"
+      responses:
+        '200':
+          description: Image file
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+
+                      
+components:
+  schemas:
+    UserRegister:
+      type: object
+      properties:
+        user_id:
+          type: integer
+        last_name:
+          type: string
+        first_name:
+          type: string
+        email:
+          type: string
+        is_delivery_agent:
+          type: boolean
+        joined_date:
+          type: string
+          format: date
+        profile_pic_url:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        role_id:
+          type: number
+        password:
+          type: string
+
+    UserProfile:
+      type: object
+      properties:
+        user_id:
+          type: integer
+        last_name:
+          type: string
+        first_name:
+          type: string
+        email:
+          type: string
+        user_type:
+          type: string
+        is_verified:
+          type: boolean
+        is_delivery_agent:
+          type: boolean
+        badge:
+          type: string
+        sell_count:
+          type: integer
+        buy_count:
+          type: integer
+        level:
+          type: integer
+        bio:
+          type: string
+        joined_date:
+          type: string
+          format: date
+        profile_pic_url:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        role_id:
+          type: number
+
+    Address:
+      type: object
+      properties:
+        address_id:
+          type: integer
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+
+    Product:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        condition:
+          type: string
+        image_urls:
+          type: array
+          items:
+            type: string
+        seller_id:
+          type: number
+        category_id:
+          type: number
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        status:
+          type: string
+        is_wanted:
+          type: boolean
+      required:
+        - name
+        - description
+        - price
+        - condition
+        - image_urls
+        - seller_id
+        - category_id
+        - is_wanted
+        
+    DeliveryRequest:
+      type: object
+      properties:
+        request_id:
+          type: integer
+        order_id:
+          type: number
+        agent_id:
+          type: number
+        pickup_location:
+          type: string
+        drop_location:
+          type: string
+        status:
+          type: string
+
+    Message:
+      type: object
+      properties:
+        message_id:
+          type: integer
+        sender_id:
+          type: number
+        receiver_id:
+          type: number
+        text:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        is_read:
+          type: boolean
+
+    Review:
+      type: object
+      properties:
+        review_id:
+          type: integer
+        reviewer_id:
+          type: number
+        reviewee_id:
+          type: number
+        product_id:
+          type: number
+        rating:
+          type: number
+          format: float
+        comment:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+    Report:
+      type: object
+      properties:
+        report_id:
+          type: integer
+        reporter_id:
+          type: number
+        product_id:
+          type: number
+        reason:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: string
+
+
+        
+        
+        
+        
+        
+        

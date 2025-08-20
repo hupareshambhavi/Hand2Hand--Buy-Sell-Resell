@@ -1,0 +1,42 @@
+[
+  {
+    "model": "users.address",
+    "pk": 1,
+    "fields": {
+      "street": "123 Main St",
+      "city": "Fulda",
+      "state": "Hessen",
+      "postal_code": "36037"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 1,
+    "fields": {
+      "street": "123 Main St",
+      "city": "Fulda",
+      "postal_code": "33401",
+      "state": "Hessen"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 2,
+    "fields": {
+      "street": "456 Elm St",
+      "city": "Fulda",
+      "postal_code": "36043",
+      "state": "Hessen"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 3,
+    "fields": {
+      "street": "789 Oak St",
+      "city": "Fulda",
+      "postal_code": "36041",
+      "state": "Hessen"
+    }
+  }
+]

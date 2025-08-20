@@ -1,0 +1,81 @@
+name: Build and Push Images to Docker Hub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and push images
+      run: |
+        docker compose -f docker-compose.prod.yml down -v
+        docker compose -f docker-compose.prod.yml build
+        docker compose -f docker-compose.prod.yml push
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+
+    - name: Inject Docker credentials into cloud-init
+      run: |
+        sed -i "s|\${DOCKER_USERNAME}|${{ secrets.DOCKER_USERNAME }}|g" cloud-init.sh
+        sed -i "s|\${DOCKER_PASSWORD}|${{ secrets.DOCKER_PASSWORD }}|g" cloud-init.sh
+
+    - name: Launch EC2 instance
+      id: ec2
+      run: |
+        INSTANCE_ID=$(aws ec2 run-instances \
+          --image-id ami-0731becbf832f281e \
+          --count 1 \
+          --instance-type t2.small \
+          --key-name hand2hand \
+          --security-group-ids sg-00379de3e0e75970e \
+          --user-data file://cloud-init.sh \
+          --block-device-mappings '[{
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "VolumeSize": 24,
+              "VolumeType": "gp3",
+              "DeleteOnTermination": true
+            }
+          }]' \
+          --query 'Instances[0].InstanceId' \
+          --output text)
+
+        echo "INSTANCE_ID=$INSTANCE_ID" >> $GITHUB_ENV
+
+        echo "Waiting for instance to be running..."
+        aws ec2 wait instance-running --instance-ids $INSTANCE_ID
+
+        echo "Attaching Elastic IP..."
+        aws ec2 associate-address \
+          --instance-id $INSTANCE_ID \
+          --allocation-id eipalloc-0a7e8f0a6020a8aa8
+
+        PUBLIC_IP=$(aws ec2 describe-instances \
+          --instance-ids $INSTANCE_ID \
+          --query 'Reservations[0].Instances[0].PublicIpAddress' \
+          --output text)
+
+        echo "PUBLIC_IP=$PUBLIC_IP" >> $GITHUB_ENV
+        echo "EC2 Instance ID: $INSTANCE_ID with IP: $PUBLIC_IP"
